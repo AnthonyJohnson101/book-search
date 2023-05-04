@@ -1,13 +1,12 @@
-//IMPORTS
 const { AuthenticationError } = require('apollo-server-express');
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');
 
-//Define resolvers
+//resolvers
 const resolvers = {
-    //finds the current user
+    //finds user
     Query: {
-        getUser: async (parent, { userId }) => {
+        getme: async (parent, { userId }) => {
             return User.findOne({ _id: userId })
         }
     },
