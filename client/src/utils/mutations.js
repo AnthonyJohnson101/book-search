@@ -58,3 +58,23 @@ mutation removeBook($userId: ID!, $book: BookInput!){
   }
 }
 `
+
+//user query
+export const GET_USER = gql`
+    query getUser($userId: ID!) {
+        getUser(userId: $userId) {
+            _id
+            username
+            email
+            savedBooks {
+                bookId
+                authors
+                description
+                title
+                image
+                link
+            }
+            bookCount
+        }
+    }
+`
